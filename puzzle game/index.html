@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">🧩 Puzzle Master</h1>
+            <p class="game-subtitle">Rearrange the tiles to complete the image!</p>
+        </header>
+
+        <div class="controls-section">
+            <div class="control-group">
+                <label class="control-label">Difficulty Level</label>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn" data-size="3">3×3</button>
+                    <button class="difficulty-btn active" data-size="4">4×4</button>
+                    <button class="difficulty-btn" data-size="5">5×5</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Custom Image</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="imageUpload" class="file-input" accept="image/*">
+                    <label for="imageUpload" class="file-input-label">
+                        📁 Upload Your Image
+                    </label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Game Controls</label>
+                <div class="game-buttons">
+                    <button id="startBtn" class="btn btn-primary">Start Game</button>
+                    <button id="shuffleBtn" class="btn btn-secondary" disabled>Shuffle</button>
+                    <button id="resetBtn" class="btn btn-secondary" disabled>Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-item">
+                <span id="moveCount" class="stat-value">0</span>
+                <span class="stat-label">Moves</span>
+            </div>
+            <div class="stat-item">
+                <span id="timeCount" class="stat-value">00:00</span>
+                <span class="stat-label">Time</span>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <img id="originalImage" class="original-image" style="display: none;" alt="Original Image">
+        </div>
+
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading puzzle...</p>
+        </div>
+
+        <div class="puzzle-container">
+            <div id="puzzleGrid" class="puzzle-grid"></div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="success-modal">
+        <div class="success-content">
+            <h2 class="success-title">🎉 Congratulations!</h2>
+            <p>You've successfully completed the puzzle!</p>
+            <div class="success-stats">
+                <p><strong>Moves:</strong> <span id="finalMoves"></span></p>
+                <p><strong>Time:</strong> <span id="finalTime"></span></p>
+            </div>
+            <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
